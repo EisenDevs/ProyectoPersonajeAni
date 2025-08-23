@@ -69,35 +69,6 @@
       height: auto;
       border-radius: 5px;
     }
-
-    /* Contador de visitas */
-    #click-counter {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: rgba(105, 104, 104, 0.7);
-      padding: 15px 20px;
-      border-radius: 10px;
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-      text-align: center;
-      color: #fff;
-      backdrop-filter: blur(8px);
-      z-index: 10;
-    }
-
-    #click-counter h3 {
-      margin: 0;
-      font-size: 12px;
-      font-weight: 500;
-      color: #f0f0f0;
-    }
-
-    #click-counter p {
-      margin: 0;
-      font-size: 16px;
-      font-weight: bold;
-      color: #ffdc73;
-    }
   </style>
 </head>
 
@@ -116,28 +87,5 @@
     <img src="/eisenholzlogo.png" alt="Eisenholz">
   </div>
 
-  <!-- Contador de visitas -->
-  <div id="click-counter">
-    <h3>Visits:</h3>
-    <p id="counter-value">Loading...</p>
-  </div>
-
-  <!-- Script del contador dinámico -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      fetch('/contador.php')
-        .then(response => {
-          if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-          return response.text();
-        })
-        .then(data => {
-          document.getElementById('counter-value').innerText = `${data} times`;
-        })
-        .catch(error => {
-          console.error('Error loading the counter:', error);
-          document.getElementById('counter-value').innerText = "Error loading";
-        });
-    });
-  </script>
 </body>
 </html>
